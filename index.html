@@ -26,10 +26,11 @@
                     Directions:
                 </p>
                 <p>You will be given a random number at the start of the game.</p>
-                <p>There are four crystals below. By clicking on a crystal you will add a specidfic amount to your total score.</p>
+                <p>There are four crystals below. By clicking on a crystal you will add a specific amount to your total score.</p>
                 <p>You win the game by matching the total score in the target box, you lose the game if your total number goes above the target number.</p>
                 <p>The value of each crystal is hidden from you until the click on it.</p>
                 <p>Each time the game starts each crystal will have a different value.</p>
+                <button id="start-button"><p>START GAME!</p></button>
             </div>
         </div>
     <!-- div to gold a box for the target number and a box for the wins and losses -->
@@ -46,8 +47,8 @@
     <!-- div for the 4 crystal images  -->
         <div class="row">
             <div class="col-lg-3">
-                <button>
-                    <img id="red-crystal" src="assets/images/red-crystal.jpeg" alt="red crystal" />
+                <button id="red-crystal">
+                    <img  src="assets/images/red-crystal.jpeg" alt="red crystal" />
                 </button>
             </div>
             <div class="col-lg-3">
@@ -70,7 +71,7 @@
     <!-- div for total score box  -->
         <div class="row">
             <div class="col-lg-6">
-                <p id="total-score">Your total score is:</p>
+                <p >Your total score is: <span id="total-score"></span></p>
             </div>
         </div>
     
