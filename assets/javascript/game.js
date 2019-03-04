@@ -1,8 +1,6 @@
 // global variables
 var wins = 0;
-
 var losses = 0;
-
 var totalScore = 0 ;
 // funcion to for random target Number
 var randomNumber = function()  {
@@ -12,37 +10,41 @@ var randomNumber = function()  {
 var randomValue = function() {
     return Math.floor(Math.random() * ((12-1)+1) + 1);
 };
+// function to store crystal values
+var crystalValues = function() {
+    $("#red-crystal").attr('data-points', randomValue());
+    $("#blue-crystal").attr('data-points', randomValue());
+    $("#green-crystal").attr('data-points', randomValue());
+    $("#pink-crystal").attr('data-points', randomValue());
+}
 
+// function to add crystal points to total score
+var addCrystalPoints = function (crystal) {
+    totalScore += parseInt($(crystal).attr('data-points'));
+    $("#total-score").text(totalScore);
+}
+
+// target number variable
 var targetNumber = randomNumber();
 
 //  add attribute data points with a value of randomValue
-$("#red-crystal").attr('data-points', randomValue());
-$("#blue-crystal").attr('data-points', randomValue());
-$("#green-crystal").attr('data-points', randomValue());
-$("#pink-crystal").attr('data-points', randomValue());
+crystalValues();
 
 // start button to begin the game
 $("#start-button").on("click", function(){
     $("#total-score").empty();
     $("#target-number").text(targetNumber);
-    $("#red-crystal").attr('data-points', randomValue());
-    $("#blue-crystal").attr('data-points', randomValue());
-    $("#green-crystal").attr('data-points', randomValue());
-    $("#pink-crystal").attr('data-points', randomValue());
+    crystalValues();
    
-
 });
 
     // function to reset game
-    var reset = function() {
-        $("#target-number").empty();
-        $("#total-score").empty();
-        totalScore = 0;
-        $("#red-crystal").attr('data-points', randomValue());
-        $("#blue-crystal").attr('data-points', randomValue());
-        $("#green-crystal").attr('data-points', randomValue());
-        $("#pink-crystal").attr('data-points', randomValue());
-    };
+var reset = function() {
+    $("#target-number").empty();
+    $("#total-score").empty();
+    totalScore = 0;
+    crystalValues();
+};
 
 // function to check scores
 var checkScores = function() {
@@ -50,11 +52,11 @@ var checkScores = function() {
         alert("You win!");
         reset();
         wins++
-    } else if (totalScore > targetNumber) {
+    } 
+    else if (totalScore > targetNumber) {
         alert("You lose, loser");
         reset();
         losses++
-        
     }
     $("#wins-text").text("Wins: " + wins);
     $("#losses-text").text("Losses: " + losses);
@@ -62,57 +64,37 @@ var checkScores = function() {
 
 $(document).ready(function() {
     
-    // assign a random number to the target number box
-   
-
-    // click function for red crystal to give it a number value
+    //  // click function for red crystal to give it a number value
     $("#red-crystal").on("click", () => {
-
-      // add the value of red gem to the total score
-      totalScore += parseInt($("#red-crystal").attr('data-points'));
-      // print total score to the broswer
-     $("#total-score").text(totalScore);
-     checkScores()
-    
-
+        // add the value of red gem to the total score
+        addCrystalPoints("#red-crystal");
+        checkScores();
     });
-
 
     // click function for blue crystal to give it a number value
     $("#blue-crystal").on("click", () => {
-   
-         // add the value of red gem to the total score
-        totalScore += parseInt($("#blue-crystal").attr('data-points'));
+        // add the value of blue gem to the total score
+        addCrystalPoints("#blue-crystal");
         // print total score to the broswer
         $("#total-score").text(totalScore);
         checkScores()
-        
-    
     });
 
     // click function for green crystal to give it a number value
     $("#green-crystal").on("click", () => {
-    
          // add the value of red gem to the total score
-        totalScore += parseInt($("#green-crystal").attr('data-points'));
+        addCrystalPoints("#green-crystal");
         // print total score to the broswer
         $("#total-score").text(totalScore);
-        checkScores()
-        ();
+        checkScores();
     });
 
     // click function for pink crystal to give it a number value
     $("#pink-crystal").on("click", () => {
-    
-        // add the value of red gem to the total score
-        totalScore += parseInt($("#pink-crystal").attr('data-points'));
+        // add the value of pink crystal to the total score
+        addCrystalPoints("#pink-crystal");
         // print total score to the broswer
         $("#total-score").text(totalScore);
-        checkScores()
-        
+        checkScores();
     });
-
-
-    
-   
 });

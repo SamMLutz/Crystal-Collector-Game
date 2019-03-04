@@ -8,3 +8,13 @@ var crystalValues = function() {
     $("#green-crystal").attr('data-points', randomValue());
     $("#pink-crystal").attr('data-points', randomValue());
 }
+
+
+
+
+// function for crystal clicks
+
+// give class to all crsytals
+var addCrystals = function (crystal) {
+    totalScore += parseInt($(crystal).attr('data-points'));
+}

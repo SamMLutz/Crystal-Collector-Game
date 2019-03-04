@@ -1,4 +1,30 @@
 #blue-crystal {
-    height: 70%;
-    width:50%;
+    height: 100%;
+    width: 100%;
 }
+
+#red-crystal {
+    height: 100%;
+    width: 100%;
+}
+
+#green-crystal {
+    height: 100%;
+    width: 100%;
+}
+
+#pink-crystal {
+    height: 100%;
+    width: 100%;
+}
+
+#main-row {
+    text-align: center;
+    
+}
+
+.jumbotron {
+    text-align: center;
+
+}
+

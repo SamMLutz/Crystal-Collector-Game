@@ -91,3 +91,13 @@ $(document).ready(function() {
     checkScores();
   });
 });
+
+
+
+
+
+
+// $("#red-crystal").attr('data-points', randomValue());
+// $("#blue-crystal").attr('data-points', randomValue());
+// $("#green-crystal").attr('data-points', randomValue());
+// $("#pink-crystal").attr('data-points', randomValue());
