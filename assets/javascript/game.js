@@ -2,11 +2,11 @@
 var wins = 0;
 var losses = 0;
 var totalScore = 0 ;
-// funcion to for random target Number
+// funcion for random target Number
 var randomNumber = function()  {
     return Math.floor(Math.random() * ((120-19)+1) + 19);
 };
-// function tp generate random gem values
+// function to generate random gem values
 var randomValue = function() {
     return Math.floor(Math.random() * ((12-1)+1) + 1);
 };
@@ -38,7 +38,7 @@ $("#start-button").on("click", function(){
    
 });
 
-    // function to reset game
+// function to reset game
 var reset = function() {
     $("#target-number").empty();
     $("#total-score").empty();
@@ -64,7 +64,7 @@ var checkScores = function() {
 
 $(document).ready(function() {
     
-    //  // click function for red crystal to give it a number value
+    // click function for red crystal to give it a number value
     $("#red-crystal").on("click", () => {
         // add the value of red gem to the total score
         addCrystalPoints("#red-crystal");
