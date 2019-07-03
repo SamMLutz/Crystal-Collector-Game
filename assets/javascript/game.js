@@ -4,34 +4,29 @@ let losses = 0;
 let totalScore = 0 ;
 
 // funcion for random target Number
-const randomNumber = function()  {
-    return Math.floor(Math.random() * ((120-19)+1) + 19);
-};
+const randomNumber = () => Math.floor(Math.random() * ((120-19)+1) + 19);
 
-// function to generate random gem values
-const randomValue = function() {
-    return Math.floor(Math.random() * ((12-1)+1) + 1);
-};
+// function to generate random values for our crystals 
+const randomValue = () => Math.floor(Math.random() * ((12-1)+1) + 1);
 
 // function to store crystal values
-const crystalValues = function() {
+const crystalValues = () => {
     $("#red-crystal").attr('data-points', randomValue());
     $("#blue-crystal").attr('data-points', randomValue());
     $("#green-crystal").attr('data-points', randomValue());
     $("#pink-crystal").attr('data-points', randomValue());
 }
-
 // target number variable
 let targetNumber = randomNumber();
 
 // function to add crystal points to total score
-const addCrystalPoints = function (crystal) {
+const addCrystalPoints = crystal => {
     totalScore += parseInt($(crystal).attr('data-points'));
     $("#total-score").text(totalScore);
 }
 
 // start button to begin the game
-$("#start-button").on("click", function(){
+$("#start-button").on("click", () => {
     targetNumber = randomNumber();
     $("#total-score").empty();
     $("#target-number").empty();
@@ -40,7 +35,7 @@ $("#start-button").on("click", function(){
 });
 
 // function to reset game
-const reset = function() {
+const reset = () => {
     $("#target-number").empty();
     $("#total-score").empty();
     totalScore = 0;
@@ -48,7 +43,7 @@ const reset = function() {
 };
 
 // function to check scores
-const checkScores = function() {
+const checkScores = () => {
     if (totalScore === targetNumber) {
         alert("You win!");
         reset();
